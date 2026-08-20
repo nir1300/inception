@@ -1,0 +1,22 @@
+version:
+services:
+	mariadb:
+		container_name: mariadb
+		image:	
+		build:
+		ports:
+		depends_on:
+		volumes:
+		networks:
+		env_file:
+		restart: always
+	nginx
+	wordpress
+volumes:
+netwoks:
+	inception:
+		name: incpetion
+#networks
+#volumes
+#env vars
+#expose
