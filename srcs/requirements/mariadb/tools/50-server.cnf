@@ -1,0 +1,22 @@
+[mysqld]
+# Tells MariaDB these options apply to the database server daemon (mysqld).
+
+user = mysql
+# Security rule: Never run databases as 'root'. It runs under the unprivileged 'mysql' system user.
+
+pid-file = /run/mysqld/mysqld.pid
+socket = /run/mysqld/mysqld.sock
+# Linux needs to know where to create runtime files for process ID tracking (pid) and local command-line connections (socket).
+
+port = 3306
+# The standard default network port for MySQL/MariaDB.
+
+datadir = /var/lib/mysql
+# Tells MariaDB where the actual database tables are stored on the disk (this matches your Docker volume mount!).
+
+bind-address = 0.0.0.0
+# THE MOST IMPORTANT LINE: 
+# By default, MariaDB sets this to '127.0.0.1' (localhost). 
+# If left as 127.0.0.1, MariaDB ONLY listens to requests originating from INSIDE its own container.
+# Setting it to '0.0.0.0' tells MariaDB: "Listen for incoming requests on ALL network interfaces."
+# This is what allows the WordPress container to connect to MariaDB over the Docker network.
