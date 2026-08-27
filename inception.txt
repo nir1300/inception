@@ -5,8 +5,9 @@ docker rm <name> # to remove container
 
 vm practices:
 ssh nrumpfhu@localhost -p 2222 (to connect from host terminal)
-save machine state (for quick pauses)
-send shutdown signal (at end of day/before snapshots): sudo poweroff (in SSH terminal)
+docker compose up --build mariadb
+-> detach, then:
+docker compose up -d mariadb (to run in detached mode)
 
 to-do:
 3 docker container 

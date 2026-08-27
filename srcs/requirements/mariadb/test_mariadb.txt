@@ -1,0 +1,18 @@
+https://github.com/waltergcc/42-inception#114-test-the-mariadb-container
+
+docker compose up -d --build mariadb
+
+#check container is running
+docker ps -a
+
+#view live logs
+docker logs -f mariadb
+
+#execute command inside container with user
+docker exec -it <container id> /bin/bash 
+
+#check if database is created correctly and running
+mysql -u randomuser -p randomdb
+
+SHOW TABLES;
+(empty for now, will show tables created by wordpress)
