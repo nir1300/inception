@@ -1,10 +1,10 @@
 #!/bin/bash
 
 #wait for mariadb to be ready
-until mariadb-admin ping -h"mariadb" --silent; do
-    echo "Waiting for MariaDB..."
-    sleep 2
-done
+# until mariadb-admin ping -h"mariadb" --silent; do
+#     echo "Waiting for MariaDB..."
+#     sleep 2
+# done
 
 mkdir -p /var/www/html
 cd /var/www/html

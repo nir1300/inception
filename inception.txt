@@ -52,10 +52,8 @@ https://docs.docker.com/engine/install/debian/
 5. add user to docker group
 sudo sermod -aG docker nrumpfhu
 
-6. create snapshot (save backup version after docker installation)
 
-
-7. create directory layout
+6. create directory layout
 
 ### 2. global configuration: .env & hosts ###
 ### 3. build service mariaDB ###

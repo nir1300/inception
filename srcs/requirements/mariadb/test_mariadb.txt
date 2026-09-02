@@ -14,5 +14,12 @@ docker exec -it <container id> /bin/bash
 #check if database is created correctly and running
 mysql -u randomuser -p randomdb
 
+#if it doesnt work, clean corrupted database directory and rebuild
+docker compose down
+sudo rm -rf /home/nrumpfhu/data/mariadb/*
+docker compose up -d --build mariadb
+
+docker exec -it mariadb mariadb -u randomuser -prandompw randomdb
+
 SHOW TABLES;
 (empty for now, will show tables created by wordpress)
