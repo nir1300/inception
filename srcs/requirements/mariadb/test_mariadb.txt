@@ -23,3 +23,5 @@ docker exec -it mariadb mariadb -u randomuser -prandompw randomdb
 
 SHOW TABLES;
 (empty for now, will show tables created by wordpress)
+
+docker compose down
