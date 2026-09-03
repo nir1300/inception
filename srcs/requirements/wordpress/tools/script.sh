@@ -25,3 +25,5 @@ fi
 
 #start php-fpm in the foreground
 exec php-fpm8.2 -F
+
+#daemonize?

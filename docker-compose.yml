@@ -29,6 +29,8 @@ services:
     container_name: wordpress
     build: ./requirements/wordpress
     image: wordpress:42
+    depends_on:
+    - mariadb
     restart: always
     volumes:
       - /home/nrumpfhu/data/wordpress:/var/www/html
