@@ -21,8 +21,11 @@ if [ ! -f /var/www/html/wp-config.php ]; then #location correct?
     wp core install --url=$wp_url --title=$wp_title --admin_user=$wp_admin_user --admin_password=$wp_admin_pw --admin_email=$wp_admin_email --allow-root
     #create additional user
     wp user create $wp_user $wp_user_email --user_pass=$wp_user_pw --role=author --allow-root
+
 fi
 
+
+wp theme install astra --activate --allow-root
 #start php-fpm in the foreground
 exec php-fpm8.2 -F
 

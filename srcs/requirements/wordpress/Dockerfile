@@ -7,7 +7,7 @@ EXPOSE 9000
 
 
 #copy www.conf file
-COPY tools/www.conf /etc/php/8.2/fpm/pool.d/www.conf
+COPY conf/www.config /etc/php/8.2/fpm/pool.d/www.conf
 
 #copy script and launch
 COPY tools/script.sh /usr/local/bin/script.sh

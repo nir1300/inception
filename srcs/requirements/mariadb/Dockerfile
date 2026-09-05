@@ -8,7 +8,7 @@ EXPOSE 3306
 
 COPY tools/script.sh /usr/local/bin/script.sh
 # copy configuration file to overwrite default with my own
-COPY tools/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
 RUN chmod +x /usr/local/bin/script.sh
 ENTRYPOINT ["/usr/local/bin/script.sh"]

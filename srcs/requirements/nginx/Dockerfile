@@ -15,7 +15,7 @@ RUN openssl req -x509 -nodes -days 365 \
     -keyout /etc/nginx/ssl/inception.key \
     -out /etc/nginx/ssl/inception.crt;
 #copy custom config file and override default
-COPY tools/nginx.conf /etc/nginx/conf.d/default.conf
+COPY conf/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 443
 

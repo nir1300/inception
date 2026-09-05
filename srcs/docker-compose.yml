@@ -5,35 +5,37 @@ services:
     image: mariadb:42
     restart: always
     volumes:
-      - /home/nrumpfhu/data/mariadb:/var/lib/mysql
+      - mariadb_data:/var/lib/mysql
     networks:
       - inception
     env_file:
       - .env
+
   nginx:
     container_name: nginx
     build: ./requirements/nginx
     image: nginx:42
     ports:
-      - 443:443
+      - "443:443"
     depends_on:
-    - wordpress
+      - wordpress
     restart: always
     volumes:
-      - /home/nrumpfhu/data/wordpress:/var/www/html
+      - wordpress_data:/var/www/html
     networks:
       - inception
     env_file:
       - .env
+
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
     image: wordpress:42
     depends_on:
-    - mariadb
+      - mariadb
     restart: always
     volumes:
-      - /home/nrumpfhu/data/wordpress:/var/www/html
+      - wordpress_data:/var/www/html
     networks:
       - inception
     env_file:
@@ -42,3 +44,20 @@ services:
 networks:
   inception:
     name: inception
+
+volumes:
+  mariadb_data:
+    name: mariadb_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/nrumpfhu/data/mariadb
+
+  wordpress_data:
+    name: wordpress_data
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/nrumpfhu/data/wordpress
