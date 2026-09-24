@@ -2,23 +2,17 @@ NAME = inception
 COMPOSE_FILE = ./srcs/docker-compose.yml
 DATA_PATH = /home/nrumpfhu/data
 
-all: prepare build up
+all: build up
 
-prepare:
-	@mkdir -p $(DATA_PATH)/mariadb
-	@mkdir -p $(DATA_PATH)/wordpress
 
 build:
 	docker compose -f $(COMPOSE_FILE) build
 
-up: prepare
+up: 
 	docker compose -f $(COMPOSE_FILE) up -d
 
 down:
 	docker compose -f $(COMPOSE_FILE) down
-
-start:
-	docker compose -f $(COMPOSE_FILE) start
 
 stop:
 	docker compose -f $(COMPOSE_FILE) stop
@@ -40,4 +34,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all prepare build up down start stop status logs clean fclean re
+.PHONY: all build up down stop status logs clean fclean re
