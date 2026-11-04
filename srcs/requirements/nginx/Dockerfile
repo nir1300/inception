@@ -22,9 +22,3 @@ EXPOSE 443
 #launch nginx binary
 #force nginx to run in foreground to keep PID1 active -> container stays running
 CMD ["nginx", "-g", "daemon off;"]
-
-#resources:
-#https://docs.openssl.org/master/man1/openssl-req/
-#https://nginx.org/en/docs/http/configuring_https_servers.html
-#https://smithtalkstech.com/2018/04/25/creating-a-self-signed-ssl-certificate-for-local-docker-development/
-#https://codingwithmanny.medium.com/configure-self-signed-ssl-for-nginx-docker-from-a-scratch-7c2bcd5478c6

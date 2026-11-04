@@ -1,16 +1,20 @@
 [mysqld]
+
+# mariadb server config, overwrites default file which has same name
 # options apply to the database server daemon (mysqld)
 
+# daemon runs as unpriviliged mysql user, not root
 user = mysql
 
+# runtime files, pid-file stores process id, socket = connection point for clients
 pid-file = /run/mysqld/mysqld.pid
 socket = /run/mysqld/mysqld.sock
-# location for runtime files
 
+#standard mariadb port
 port = 3306
 
+# where database is stored -> this folder gets mounted as a volume (=data persists)
 datadir = /var/lib/mysql
-# where database is stored
 
+# to listen on all network interfaces, defulat is localhost only (that would blcok wordpress cont)
 bind-address = 0.0.0.0
-# to listen on all network interfaces

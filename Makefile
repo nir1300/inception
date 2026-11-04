@@ -4,8 +4,9 @@ DATA_PATH = /home/nrumpfhu/data
 
 all: build up
 
-
 build:
+	mkdir -p /home/nrumpfhu/data/mariadb/
+	mkdir -p /home/nrumpfhu/data/wordpress/
 	docker compose -f $(COMPOSE_FILE) build
 
 up: 
@@ -20,18 +21,10 @@ stop:
 status:
 	docker compose -f $(COMPOSE_FILE) ps
 
-logs:
-	docker compose -f $(COMPOSE_FILE) logs
-
-clean: down
-	docker system prune -a --force
-
-fclean: clean
-	@sudo rm -rf $(DATA_PATH)/mariadb/*
-	@sudo rm -rf $(DATA_PATH)/wordpress/*
-	docker volume rm mariadb_data wordpress_data 2>/dev/null || true
-	docker network rm inception 2>/dev/null || true
+fclean: down
+	@sudo rm -rf $(DATA_PATH)/mariadb/* $(DATA_PATH)/wordpress/*
+	@echo "Data wiped."
 
 re: fclean all
 
-.PHONY: all build up down stop status logs clean fclean re
+.PHONY: all build up down stop status fclean re
